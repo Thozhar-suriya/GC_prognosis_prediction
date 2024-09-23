@@ -1,0 +1,9 @@
+tensorflow-gpu==2.2.0
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+prettytable
+pydot
+pyqt5
