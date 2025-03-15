@@ -32,7 +32,7 @@ class KLDivergenceLayer(Layer):
 
 def build_encoder(input_dim):
     x = Input(shape=(input_dim,), name='x')
-    h = Dense(ENCODER_DIM, activation='relu', name='hidden_layer')(x)
+    h = Dense(ENCODER_DIM, activation='tanh', name='hidden_layer')(x)
 
     z_mu = Dense(ENCODER_DIM, name='mu')(h)
     z_log_var = Dense(ENCODER_DIM, name='log_var')(h)
@@ -50,7 +50,7 @@ def build_encoder(input_dim):
 def build_decoder(input_dim):
     print('[INFO] Building Decoder Model')
     model = Sequential(name='decoder')
-    model.add(Dense(input_dim, activation='sigmoid', input_dim=ENCODER_DIM))
+    model.add(Dense(input_dim, activation='tanh', input_dim=ENCODER_DIM))
     return model
 
 
